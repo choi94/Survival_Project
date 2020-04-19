@@ -1,0 +1,39 @@
+# Directories #
+/build/
+/bin/
+target/
+.vscode/
+node_modules/
+
+# OS Files #
+.Trashes
+.Thumbs.db
+.ehthumbs.db
+
+# Package Files #
+*.dmg
+*.iso
+*.tar
+*.zip
+*.gz
+*.tgz
+
+# Word #
+*.xlsx
+*.xls
+*.pdf
+*.docs
+*.ppt
+*.pptx
+
+
+# Log #
+*.log
+
+# Execute #
+*.dll
+*.exe
+*.o
+*.so
+*.com
+*.class
