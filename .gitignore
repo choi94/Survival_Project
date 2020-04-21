@@ -5,10 +5,19 @@ target/
 .vscode/
 node_modules/
 
+!**/src/main/**
+!**/src/test/**
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
 # OS Files #
 .Trashes
 .Thumbs.db
 .ehthumbs.db
+HELP.md
 
 # Package Files #
 *.dmg
@@ -25,6 +34,8 @@ node_modules/
 *.docs
 *.ppt
 *.pptx
+*.jpg
+*.png
 
 
 # Log #
@@ -37,3 +48,19 @@ node_modules/
 *.so
 *.com
 *.class
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
