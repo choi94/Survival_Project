@@ -1,10 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon, MDBSideNavItem, MDBSideNavCat, MDBSideNavNav, MDBSideNav, MDBContainer } from "mdbreact";
-import Footer from "./Footer.jsx"
+import Footer from "./Footer.jsx";
+import Board from "../board/BasicBoard.jsx";
+import Tabs from "../board/Tabs.jsx"
 
-import logo from "../image/sidebar_logo.png"
-import logoBg from "../image/sidebar_bg_logo.jpg"
+import logo from "../../image/sidebar_logo.png"
+import logoBg from "../../image/sidebar_bg_logo.jpg"
 
 class DoubleNavigationPage extends React.Component {
   constructor(props) {
@@ -34,6 +36,7 @@ class DoubleNavigationPage extends React.Component {
     this.setState({
       toggleStateA: !this.state.toggleStateA
     });
+    console.log("hi");
   };
 
   render() {
@@ -44,7 +47,7 @@ class DoubleNavigationPage extends React.Component {
 
     const mainStyle = {
       margin: "0 6%",
-      paddingTop: "5.5rem",
+      paddingTop: "2.0rem",
       paddingLeft:
         this.state.windowWidth > this.state.breakWidth ? "240px" : "0"
     };
@@ -53,6 +56,11 @@ class DoubleNavigationPage extends React.Component {
       WebkitBoxOrient: "horizontal",
       flexDirection: "row"
     };
+
+    const sideNavItemStyle = {
+      paddingLeft: 0,
+      backgroundColor: 'transparent'
+    }
 
     return (
       <Router>
@@ -64,6 +72,7 @@ class DoubleNavigationPage extends React.Component {
             bg={logoBg}
             mask="strong"
             fixed
+            href="/"
           >
             {/* <MDBInput
               type="text"
@@ -80,7 +89,7 @@ class DoubleNavigationPage extends React.Component {
                 id="submit-blog-cat"
                 icon="chevron-right"
               >
-                <MDBSideNavItem>Submit listing</MDBSideNavItem>
+                <MDBSideNavItem style={sideNavItemStyle} tag={Link} to={"/board"}>Submit listing</MDBSideNavItem>
                 <MDBSideNavItem>Registration form</MDBSideNavItem>
               </MDBSideNavCat>
               <MDBSideNavCat
@@ -160,20 +169,15 @@ class DoubleNavigationPage extends React.Component {
             </MDBNavbarNav>
           </MDBNavbar>
           <main style={mainStyle}>
-            <MDBContainer fluid style={{ height: 2000 }} className="mt-5">
-              {/* <h2>
-                Advanced Double Navigation with fixed SideNav & fixed Navbar:
-              </h2>
-              <br />
-              <h5>1. Fixed side menu, hidden on small devices.</h5>
-              <h5>
-                2. Fixed Navbar. It will always stay visible on the top, even
-                when you scroll down.
-              </h5> */}
+            <MDBContainer fluid className="mt-5">
+              <Route path="/" exact component={Tabs}/>
+              <Route path="/board" component={Board}/>
             </MDBContainer>
           </main>
-        <Footer/>
         </div>
+
+        
+        <Footer/>
       </Router>
     );
   }
